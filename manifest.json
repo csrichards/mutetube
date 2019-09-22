@@ -10,8 +10,14 @@
         "storage",
         "tabs"
     ],
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "js": ["content.js"]
+        }
+    ],
     "background": {
-        "scripts": ["test.js"],
+        "scripts": ["background.js"],
         "persistent": false
     }
 }

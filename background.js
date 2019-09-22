@@ -10,14 +10,15 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     if (changeInfo.status == 'complete') {
         const site = tab.url.split('/');
         console.log(changeInfo);
-        console.log(tab);
+        console.log(tab.id);
         //console.log(site);
 
         let domain = site[2];
         let page = site[3];
 
         if (page === 'channel' || page === 'user') {
-            console.log('awww yeaahhhh');
+            console.log(tab.id);
+            chrome.tabs.sendMessage(tab.id, {"message": "loaded_channel_page"});
         }
     };
 
