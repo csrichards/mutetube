@@ -4,9 +4,8 @@
 
 'use strict';
 
-
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-
+ 
     if (changeInfo.status == 'complete') {
         const site = tab.url.split('/');
 
@@ -18,5 +17,6 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
             chrome.tabs.sendMessage(tab.id, {"message": "loaded_channel_page"});
         }
     };
+
 
 });

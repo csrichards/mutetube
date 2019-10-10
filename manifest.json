@@ -8,11 +8,12 @@
     "icons": { "128": "mutetube.png" },
     "permissions": [
         "storage",
-        "tabs"
+        "tabs",
+        "webNavigation"
     ],
     "content_scripts": [
         {
-            "matches": ["http://*/*", "https://*/*"],
+            "matches": ["https://*/*", "http://*/*", "http://www.youtube.com/user/*", "http://www.youtube.com/channel/*", "https://www.youtube.com/user/*", "https://www.youtube.com/channel/*"],
             "js": ["content.js"]
         }
     ],
