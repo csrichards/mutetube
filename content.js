@@ -12,7 +12,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         console.log('mute window: loaded channel page');
         //console.log(chrome.tabs.mutedInfo);
         //inPage(setVolume, 0);
-        setTimeout(inPage, 5000, newVolume, 0);
+        setTimeout(inPage, 4000, newVolume, 0);
 
         function newVolume(vol) {
             console.log('set volume');
