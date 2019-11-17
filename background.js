@@ -16,7 +16,5 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
             // console.log(tab.id);
             chrome.tabs.sendMessage(tab.id, {"message": "loaded_channel_page"});
         }
-    };
-
-
+    }
 });

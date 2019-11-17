@@ -11,7 +11,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         // (document.head || document.documentElement).appendChild(s);
         console.log('master branch: loaded channel page');
         //inPage(setVolume, 0);
-        setTimeout(inPage, 2000, newVolume, 0);
+        setTimeout(inPage, 4000, newVolume, 0);
 
         function newVolume(vol) {
             console.log('set volume');
@@ -20,9 +20,12 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             let muteButton = document.querySelector('.ytp-mute-button');
             let muteButtonDiv = document.querySelector('.ytp-volume-panel');
             let videos = document.querySelectorAll('video')
-            console.log(videos[0]);
+            console.log(videos);
 
-            videos[0].volume = vol;
+            videos.forEach((vid) => {
+                console.log(vid);
+                vid.volume = vol;
+           })
         }
 
         function inPage(fn, ...args) {
@@ -32,7 +35,6 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             s.textContent = `(${fn})(${JSON.stringify(args).slice(1, -1)})`;
             s.type = 'text/javascript';
             document.documentElement.appendChild(s);
-            //document.body.appendChild(s);
             console.log(document.documentElement);
             s.remove();
         }
